@@ -1,34 +1,296 @@
 /*************************************************************************
- * Your custom CSS file
+ * Custom CSS for Smart Medicine Storage Monitor (MSM)
+ * Project-specific styles and visual design enhancements
  *************************************************************************/
 
-.custom-dropdown {
-  width: 240px;
+:root {
+  --primary-teal: #0d9488;
+  --primary-teal-dark: #0f766e;
+  --accent-indigo: #4f46e5;
+  --surface-white: #ffffff;
+  --surface-soft: #f8fafc;
+  --text-dark: #0f172a;
+  --text-muted: #475569;
+  --alert-red: #dc2626;
+  --success-green: #16a34a;
+  --border-color: #e2e8f0;
 }
 
-.custom-textbox {
-  width: 240px;
+/* Navigation Menu Single-Row Alignment */
+@media screen and (min-width: 751px) {
+  .menu .menu-table {
+    flex-wrap: nowrap !important;
+  }
+  .menu .menu-items {
+    flex-wrap: nowrap !important;
+    justify-content: flex-end;
+  }
+  .menu .menu-items > a:not(:last-child) {
+    margin-right: 18px;
+  }
 }
 
-#dialog-1,
-#dialog-2,
-#dialog-3,
-#dialog-4,
-#share-dialog {
-  display: none;
+/* Custom Highlight & Title Styling */
+h1, h2, h3 {
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
 }
 
-#share-url {
+h2 {
+  font-size: 24px;
+  border-bottom: 2px solid var(--primary-teal);
+  padding-bottom: 8px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+a {
+  color: var(--primary-teal);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-indigo);
+}
+
+/* Active Menu Item Styling */
+.menu-index,
+.menu .menu-items a.active {
+  color: #ffffff !important;
+  opacity: 1 !important;
+  font-weight: 700 !important;
+}
+
+/* Hero Section Enhancement */
+.hero-banner {
+  position: relative;
+  background-color: var(--text-dark);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.hero-image {
   width: 100%;
-  -webkit-touch-callout: default !important;
-  -webkit-user-select: text !important;
-  -khtml-user-select: text !important;
-  -moz-user-select: text !important;
-  -ms-user-select: text !important;
-  user-select: text !important;
+  max-height: 380px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
 }
 
-#share-url-copy-prompt {
-  display: none;
-  color: #007bff;
+.hero-tagline {
+  font-size: 20px;
+  color: var(--primary-teal);
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+/* Grid Layouts */
+.custom-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.custom-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .custom-grid-2,
+  .custom-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Feature & Component Cards */
+.custom-card {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.custom-card h3 {
+  margin-top: 0;
+  color: var(--primary-teal-dark);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.badge-teal {
+  background-color: #ccfbf1;
+  color: #0f766e;
+}
+
+.badge-indigo {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.badge-green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+.badge-gray {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+/* Architecture Block Flow */
+.arch-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  width: 100%;
+  margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+  .arch-container {
+    flex-direction: column;
+  }
+  .arch-arrow {
+    transform: rotate(90deg);
+    margin: 10px 0;
+  }
+}
+
+.arch-block {
+  flex: 1;
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary-teal);
+  border-radius: 6px;
+  padding: 16px;
+  text-align: center;
+}
+
+.arch-block h4 {
+  margin: 0 0 6px 0;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+.arch-block p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.arch-arrow {
+  font-size: 24px;
+  color: var(--accent-indigo);
+  font-weight: bold;
+  user-select: none;
+}
+
+/* Screenshot Cards */
+.screenshot-card {
+  background: var(--surface-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.screenshot-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.screenshot-caption {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--text-dark);
+  font-weight: 600;
+  background: var(--surface-soft);
+}
+
+/* Hardware Table */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 14px;
+}
+
+.custom-table th {
+  background-color: var(--surface-soft);
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+.custom-table td {
+  color: var(--text-muted);
+}
+
+/* Resource Links Card */
+.resource-card {
+  border-left: 4px solid var(--accent-indigo);
+  background-color: var(--surface-soft);
+  padding: 15px 20px;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 15px;
+}
+
+.resource-card h3 {
+  margin: 0 0 5px 0;
+  color: var(--text-dark);
+}
+
+.resource-card p {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: var(--text-muted);
 }
